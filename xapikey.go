@@ -17,12 +17,14 @@ type Aksk struct {
 	// 所属app
 	App string `json:"app" bson:"app"`
 
+	// 给个别名
+	Alias       string `json:"alias" bson:"alias"`
+	Description string `json:"description" bson:"description"`
 	// Access Key（AK）
 	AccessKey string `json:"accessKey" bson:"accessKey"`
 	// Secret Key（SK）
-	SecretKey      string    `json:"secretKey" bson:"secretKey"`
-	CreatedTime    time.Time `json:"createdTime" bson:"createdTime"`
-	ExpirationTime time.Time `json:"expirationTime" bson:"expirationTime"`
+	SecretKey      string     `json:"secretKey" bson:"secretKey"`
+	ExpirationTime *time.Time `json:"expirationTime" bson:"expirationTime"`
 	// 状态：启用、禁用等
 	Status bool `json:"status" bson:"status"`
 	// ip白名单,多个ip以;隔开
@@ -31,11 +33,21 @@ type Aksk struct {
 	Properties map[string]interface{} `json:"properties" bson:"properties"`
 }
 
+func (a *Aksk) Validate() error {
+	if len(a.App) <= 0 {
+		return fmt.Errorf("app字段不能为空")
+	}
+	if len(a.Alias) <= 0 {
+		return fmt.Errorf("alias不能为空")
+	}
+	return nil
+}
+
 type IAkskService interface {
 	entity.IEntityService[Aksk]
 
 	//根据app与ak来查找列表
-	FindByAk(app string, ak string) ([]*Aksk, error)
+	FindByAk(app string, ak string) (*Aksk, error)
 }
 
 // 生成 AK/SK 的函数

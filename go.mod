@@ -9,7 +9,11 @@ require (
 	github.com/abmpio/entity v0.0.0-20240520130318-505499d55ac7
 	github.com/abmpio/irisx/controllerx v0.0.0-20240526073122-ee034ef94d07
 	github.com/abmpio/mongodbr v0.0.0-20240526072913-dd239bad7110
+	github.com/abmpio/redisx v0.0.0-20240524214109-e83ee1a5dd30
 	github.com/abmpio/webserver v0.0.0-20240520131117-9c852c207275
+	github.com/casdoor/casdoor-go-sdk v0.28.6
+	github.com/kataras/iris/v12 v12.2.4
+	github.com/mitchellh/mapstructure v1.5.0
 	github.com/satori/go.uuid v1.2.0
 	go.mongodb.org/mongo-driver v1.15.0
 )
@@ -26,8 +30,9 @@ require (
 	github.com/andybalholm/brotli v1.0.5 // indirect
 	github.com/armon/go-metrics v0.4.1 // indirect
 	github.com/aymerick/douceur v0.2.0 // indirect
-	github.com/casdoor/casdoor-go-sdk v0.28.6 // indirect
+	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/deckarep/golang-set v1.8.0 // indirect
+	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
 	github.com/fatih/color v1.15.0 // indirect
 	github.com/fatih/structs v1.1.0 // indirect
 	github.com/flosch/pongo2/v4 v4.0.2 // indirect
@@ -36,6 +41,7 @@ require (
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/go-playground/validator/v10 v10.19.0 // indirect
+	github.com/go-redis/redis/v8 v8.11.5 // indirect
 	github.com/golang-jwt/jwt/v4 v4.5.0 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
@@ -56,7 +62,6 @@ require (
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/kataras/blocks v0.0.7 // indirect
 	github.com/kataras/golog v0.1.12 // indirect
-	github.com/kataras/iris/v12 v12.2.4 // indirect
 	github.com/kataras/pio v0.0.13 // indirect
 	github.com/kataras/sitemap v0.0.6 // indirect
 	github.com/kataras/tunnel v0.0.4 // indirect
@@ -71,7 +76,6 @@ require (
 	github.com/mattn/go-isatty v0.0.19 // indirect
 	github.com/microcosm-cc/bluemonday v1.0.26 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
-	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/montanaflynn/stats v0.7.1 // indirect
 	github.com/pelletier/go-toml/v2 v2.2.2 // indirect
 	github.com/pkg/errors v0.9.1 // indirect

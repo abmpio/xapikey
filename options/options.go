@@ -7,6 +7,7 @@ import (
 	"github.com/abmpio/abmp/pkg/log"
 	"github.com/abmpio/configurationx"
 	"github.com/abmpio/configurationx/options/mongodb"
+	"github.com/mitchellh/mapstructure"
 )
 
 const (
@@ -25,6 +26,8 @@ type XApiKeyOptions struct {
 	//路由的前缀,如果加上此值,则所有路由都将加上这个前缀，加上时会自动以 /头,以/结尾
 	RouterPrefixPath        string `json:"routerPrefixPath"`
 	DisableControllerRegist bool   `json:"disableControllerRegist"`
+
+	DisableXApiKey bool `json:"disableXApiKey"`
 }
 
 func (o *XApiKeyOptions) normalize() {
@@ -38,7 +41,9 @@ func (o *XApiKeyOptions) normalize() {
 
 func GetOptions() *XApiKeyOptions {
 	_once.Do(func() {
-		if err := configurationx.GetInstance().UnmarshFromKey(ConfigurationKey, &_options); err != nil {
+		if err := configurationx.GetInstance().UnmarshFromKey(ConfigurationKey, &_options, func(dc *mapstructure.DecoderConfig) {
+			dc.TagName = "json"
+		}); err != nil {
 			err = fmt.Errorf("无效的配置文件,%s", err)
 			log.Logger.Error(err.Error())
 			panic(err)
