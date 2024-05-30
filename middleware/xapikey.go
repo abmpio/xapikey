@@ -32,6 +32,11 @@ func serveHTTP(ctx *context.Context) {
 		ctx.WriteString(err.Error())
 		return
 	}
+	if len(ak) <= 0 || len(sk) <= 0 {
+		// no x-api-key
+		ctx.Next()
+		return
+	}
 	appName := host.GetHostEnvironment().GetEnvString(host.ENV_AppName)
 	if len(appName) <= 0 {
 		ctx.Next()

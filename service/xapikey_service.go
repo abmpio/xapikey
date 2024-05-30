@@ -3,6 +3,7 @@ package service
 import (
 	"fmt"
 
+	"github.com/abmpio/abmp/pkg/log"
 	"github.com/abmpio/entity"
 	"github.com/abmpio/mongodbr"
 	"github.com/abmpio/xapikey"
@@ -24,16 +25,23 @@ func newApiKeyService(repository mongodbr.IRepository) xapikey.IAkskService {
 
 func (s *apiKeyService) FindByAk(app string, accessKey string) (*xapikey.Aksk, error) {
 	redisValue := getServiceGroup().redisService.StringGet(s.getAkRedisKey(app, accessKey))
-	aksk : *xapikey.Aksk
-	var err error
 	if redisValue.Err() == nil && redisValue.Exist() {
-		redisValue.ToValue(adsk)
+		aksk := &xapikey.Aksk{}
+		err := redisValue.ToValue(aksk)
+		if err == nil {
+			return aksk, nil
+		}
 	}
-	filter := bson.M{
-		"app":       app,
-		"accessKey": accessKey,
+	aksk, err := s._findByAk(app, accessKey)
+	if err != nil {
+		return nil, err
 	}
-	return s.FindOne(filter)
+	err = getServiceGroup().redisService.StringSet(s.getAkRedisKey(app, accessKey), aksk)
+	if err != nil {
+		log.Logger.Warn(fmt.Sprintf("将app与accesskey保存到xapikey时出现异常,err:%s", err.Error()))
+		return aksk, nil
+	}
+	return aksk, nil
 }
 
 func (s *apiKeyService) _findByAk(app string, accessKey string) (*xapikey.Aksk, error) {
