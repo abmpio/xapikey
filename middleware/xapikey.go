@@ -73,6 +73,7 @@ func serveHTTP(ctx *context.Context) {
 	}
 	// set claims
 	ctx.Values().Set(controllerx.GetCasdoorMiddleware().Options.Jwt.ContextKey, claim)
+	ctx.Next()
 }
 
 func extractXApiKey(ctx iris.Context) (string, string, error) {
