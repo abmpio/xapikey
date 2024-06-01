@@ -27,7 +27,8 @@ type XApiKeyOptions struct {
 	RouterPrefixPath        string `json:"routerPrefixPath"`
 	DisableControllerRegist bool   `json:"disableControllerRegist"`
 
-	DisableXApiKey bool `json:"disableXApiKey"`
+	ExtraAppName   string `json:"extraAppName"`
+	DisableXApiKey bool   `json:"disableXApiKey"`
 }
 
 func (o *XApiKeyOptions) normalize() {

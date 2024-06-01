@@ -36,10 +36,12 @@ func (s *apiKeyService) FindByAk(app string, accessKey string) (*xapikey.Aksk, e
 	if err != nil {
 		return nil, err
 	}
-	err = getServiceGroup().redisService.StringSet(s.getAkRedisKey(app, accessKey), aksk)
-	if err != nil {
-		log.Logger.Warn(fmt.Sprintf("将app与accesskey保存到xapikey时出现异常,err:%s", err.Error()))
-		return aksk, nil
+	if aksk != nil {
+		err = getServiceGroup().redisService.StringSet(s.getAkRedisKey(app, accessKey), aksk)
+		if err != nil {
+			log.Logger.Warn(fmt.Sprintf("将app与accesskey保存到xapikey时出现异常,err:%s", err.Error()))
+			return aksk, nil
+		}
 	}
 	return aksk, nil
 }

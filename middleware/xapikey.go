@@ -7,6 +7,8 @@ import (
 	"github.com/abmpio/abmp/pkg/log"
 	"github.com/abmpio/app/host"
 	"github.com/abmpio/irisx/controllerx"
+	"github.com/abmpio/xapikey"
+	"github.com/abmpio/xapikey/options"
 	"github.com/casdoor/casdoor-go-sdk/casdoorsdk"
 	"github.com/kataras/iris/v12"
 	"github.com/kataras/iris/v12/context"
@@ -37,18 +39,32 @@ func serveHTTP(ctx *context.Context) {
 		ctx.Next()
 		return
 	}
+	appNameList := make([]string, 0)
 	appName := host.GetHostEnvironment().GetEnvString(host.ENV_AppName)
-	if len(appName) <= 0 {
+	if len(appName) > 0 {
+		appNameList = append(appNameList, appName)
+	}
+	extraAppName := options.GetOptions().ExtraAppName
+	if len(extraAppName) > 0 {
+		appNameList = append(appNameList, extraAppName)
+	}
+	if len(appNameList) <= 0 {
 		ctx.Next()
 		return
 	}
-	apiKey, err := getServiceGroup().apikeyService.FindByAk(appName, ak)
-	if err != nil {
-		log.Logger.Warn(fmt.Sprintf("find x-api-key error: %v", err))
-		ctx.StopExecution()
-		ctx.StatusCode(iris.StatusUnauthorized)
-		ctx.WriteString(err.Error())
-		return
+	var apiKey *xapikey.Aksk
+	for _, eachAppName := range appNameList {
+		apiKey, err = getServiceGroup().apikeyService.FindByAk(eachAppName, ak)
+		if err != nil {
+			log.Logger.Warn(fmt.Sprintf("find x-api-key error: %v", err))
+			ctx.StopExecution()
+			ctx.StatusCode(iris.StatusUnauthorized)
+			ctx.WriteString(err.Error())
+			return
+		}
+		if apiKey != nil {
+			break
+		}
 	}
 	if apiKey == nil {
 		err := fmt.Errorf(fmt.Sprintf("invalid x-api-key,ak:%s", ak))
