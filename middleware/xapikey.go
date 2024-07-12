@@ -89,6 +89,8 @@ func serveHTTP(ctx *context.Context) {
 	}
 	// set claims
 	ctx.Values().Set(controllerx.GetCasdoorMiddleware().Options.Jwt.ContextKey, claim)
+	ctx.Values().Set("userId", claim.Id)
+
 	ctx.Next()
 }
 

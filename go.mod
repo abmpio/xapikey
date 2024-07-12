@@ -7,7 +7,7 @@ require (
 	github.com/abmpio/app v0.0.0-20240708095820-59076d71a526
 	github.com/abmpio/configurationx v0.0.0-20240520083200-bcc6a8bb57fa
 	github.com/abmpio/entity v0.0.0-20240708095905-d79ac5bdae11
-	github.com/abmpio/irisx/controllerx v0.0.0-20240708095951-4fe3a83b22f4
+	github.com/abmpio/irisx/controllerx v0.0.0-20240712094340-4d8ca564d135
 	github.com/abmpio/mongodbr v0.0.0-20240526072913-dd239bad7110
 	github.com/abmpio/redisx v0.0.0-20240524214109-e83ee1a5dd30
 	github.com/abmpio/webserver v0.0.0-20240708100150-0f7277e3dabd
@@ -25,8 +25,8 @@ require (
 	github.com/Joker/jade v1.1.3 // indirect
 	github.com/ReneKroon/ttlcache v1.7.0 // indirect
 	github.com/Shopify/goreferrer v0.0.0-20220729165902-8cddb4f5de06 // indirect
-	github.com/abmpio/irisx/casdoor v0.0.0-20240708095951-4fe3a83b22f4 // indirect
-	github.com/abmpio/libx v0.0.0-20240601073245-5d422ad4634a // indirect
+	github.com/abmpio/irisx/casdoor v0.0.0-20240712094340-4d8ca564d135 // indirect
+	github.com/abmpio/libx v0.0.0-20240709065727-91e0e507526c // indirect
 	github.com/andybalholm/brotli v1.1.0 // indirect
 	github.com/armon/go-metrics v0.4.1 // indirect
 	github.com/aymerick/douceur v0.2.0 // indirect
@@ -47,7 +47,7 @@ require (
 	github.com/gomarkdown/markdown v0.0.0-20240626202925-2eda941fd024 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/gorilla/css v1.0.1 // indirect
-	github.com/hashicorp/consul/api v1.29.1 // indirect
+	github.com/hashicorp/consul/api v1.29.2 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-hclog v1.6.3 // indirect
@@ -93,7 +93,7 @@ require (
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/spf13/viper v1.19.0 // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect
-	github.com/tdewolff/minify/v2 v2.20.36 // indirect
+	github.com/tdewolff/minify/v2 v2.20.37 // indirect
 	github.com/tdewolff/parse/v2 v2.7.15 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/vmihailenco/msgpack/v5 v5.4.1 // indirect
