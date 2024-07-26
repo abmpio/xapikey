@@ -21,11 +21,11 @@ func UseXApiKey(apiBuilder *router.APIBuilder) {
 }
 
 func serveHTTP(ctx *context.Context) {
-	claims := controllerx.GetCasdoorMiddleware().GetUserClaims(ctx)
-	if claims != nil {
-		ctx.Next()
-		return
-	}
+	// claims := controllerx.GetCasdoorMiddleware().GetUserClaims(ctx)
+	// if claims != nil {
+	// 	ctx.Next()
+	// 	return
+	// }
 	ak, sk, err := extractXApiKey(ctx)
 	if err != nil {
 		log.Logger.Warn(fmt.Sprintf("Error extracting x-api-key: %v", err))

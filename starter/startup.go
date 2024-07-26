@@ -3,6 +3,7 @@ package starter
 import (
 	"github.com/abmpio/abmp/pkg/log"
 	"github.com/abmpio/app"
+	"github.com/abmpio/app/cli"
 	"github.com/abmpio/xapikey/middleware"
 	_ "github.com/abmpio/xapikey/mongodb"
 	"github.com/abmpio/xapikey/options"
@@ -14,17 +15,16 @@ import (
 )
 
 func init() {
-	app.RegisterOneStartupAction(xapiKeyMiddlewareStartupAction)
+	cli.ConfigureService(serviceConfigurator)
 }
 
-func xapiKeyMiddlewareStartupAction(webApp *webapp.Application) app.IStartupAction {
-	return app.NewStartupAction(func() {
-		if app.HostApplication.SystemConfig().App.IsRunInCli {
-			return
-		}
-		if !options.GetOptions().DisableXApiKey {
-			middleware.UseXApiKey(webApp.APIBuilder)
-			log.Logger.Info("已启用xapikey中间件")
-		}
-	})
+func serviceConfigurator(cliApp cli.CliApplication) {
+	if app.HostApplication.SystemConfig().App.IsRunInCli {
+		return
+	}
+	webApp := app.Context.GetInstance(&webapp.Application{}).(*webapp.Application)
+	if webApp != nil && !options.GetOptions().DisableXApiKey {
+		middleware.UseXApiKey(webApp.APIBuilder)
+		log.Logger.Info("已启用xapikey中间件")
+	}
 }
