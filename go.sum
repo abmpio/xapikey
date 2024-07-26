@@ -31,8 +31,8 @@ github.com/abmpio/mongodbr v0.0.0-20240526072913-dd239bad7110 h1:DzPnREHqCHypbDc
 github.com/abmpio/mongodbr v0.0.0-20240526072913-dd239bad7110/go.mod h1:BBOoqVKwv+xv3NG/IuZUPMOHuGKf3TkT0yMcbFvBfQI=
 github.com/abmpio/redisx v0.0.0-20240524214109-e83ee1a5dd30 h1:lfgGE67VQ2IpDx8J2CHPKxX7HxHntdAQczjqRnoWsr4=
 github.com/abmpio/redisx v0.0.0-20240524214109-e83ee1a5dd30/go.mod h1:qOciG4ffXfz5FPjcqbBs2uR3b9afELU60WM167jpCeU=
-github.com/abmpio/webserver v0.0.0-20240712100326-528a55496745 h1:QkVz0YpEiOWZ4w6KIUkVd/UJGuaNaEIOAowiiwQbT10=
-github.com/abmpio/webserver v0.0.0-20240712100326-528a55496745/go.mod h1:zwHE52OmxE8nvdQoYJZasDtr5KG8hrOyQVeyvr1RKmg=
+github.com/abmpio/webserver v0.0.0-20240726123757-24a47973e183 h1:h9D+96wWvAZ8rKkmHWfgA4C5Pmm7n7FOA1rnTO/JUrQ=
+github.com/abmpio/webserver v0.0.0-20240726123757-24a47973e183/go.mod h1:EGTE+948kAaVJdrfsFzV96GxnPrJYUpOxpLyVPYR1x4=
 github.com/ajg/form v1.5.1 h1:t9c7v8JUKu/XxOGBU0yjNpaMloxGEJhUkqFRq0ibGeU=
 github.com/ajg/form v1.5.1/go.mod h1:uL1WgH+h2mgNtvBq0339dVnzXdBETtL2LeUXaIv25UY=
 github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc/go.mod h1:LOuyumcjzFXgccqObfd/Ljyb9UuFJ6TxHnclSeseNhc=
