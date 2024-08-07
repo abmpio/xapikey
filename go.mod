@@ -7,11 +7,11 @@ require (
 	github.com/abmpio/app v0.0.0-20240708095820-59076d71a526
 	github.com/abmpio/configurationx v0.0.0-20240520083200-bcc6a8bb57fa
 	github.com/abmpio/entity v0.0.0-20240730070501-fc196b5982b9
-	github.com/abmpio/irisx/controllerx v0.0.0-20240730070630-6a2a48b244bd
+	github.com/abmpio/irisx/controllerx v0.0.0-20240807112644-5b838c191aa1
 	github.com/abmpio/mongodbr v0.0.0-20240730070346-68e2d1c17880
 	github.com/abmpio/redisx v0.0.0-20240524214109-e83ee1a5dd30
 	github.com/abmpio/webserver v0.0.0-20240726123757-24a47973e183
-	github.com/casdoor/casdoor-go-sdk v0.47.0
+	github.com/casdoor/casdoor-go-sdk v0.48.0
 	github.com/kataras/iris/v12 v12.2.11
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/satori/go.uuid v1.2.0
@@ -25,8 +25,8 @@ require (
 	github.com/Joker/jade v1.1.3 // indirect
 	github.com/ReneKroon/ttlcache v1.7.0 // indirect
 	github.com/Shopify/goreferrer v0.0.0-20240724165105-aceaa0259138 // indirect
-	github.com/abmpio/irisx/casdoor v0.0.0-20240729194454-8447687ea719 // indirect
-	github.com/abmpio/libx v0.0.0-20240709065727-91e0e507526c // indirect
+	github.com/abmpio/irisx/casdoor v0.0.0-20240807112644-5b838c191aa1 // indirect
+	github.com/abmpio/libx v0.0.0-20240807095934-1645ba4bfd60 // indirect
 	github.com/andybalholm/brotli v1.1.0 // indirect
 	github.com/armon/go-metrics v0.4.1 // indirect
 	github.com/aymerick/douceur v0.2.0 // indirect
@@ -44,7 +44,7 @@ require (
 	github.com/go-redis/redis/v8 v8.11.5 // indirect
 	github.com/golang-jwt/jwt/v4 v4.5.0 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
-	github.com/gomarkdown/markdown v0.0.0-20240729215908-77f4768f716d // indirect
+	github.com/gomarkdown/markdown v0.0.0-20240730141124-034f12af3bf6 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/gorilla/css v1.0.1 // indirect
 	github.com/hashicorp/consul/api v1.29.2 // indirect
@@ -87,7 +87,7 @@ require (
 	github.com/sirupsen/logrus v1.9.3 // indirect
 	github.com/sourcegraph/conc v0.3.0 // indirect
 	github.com/spf13/afero v1.11.0 // indirect
-	github.com/spf13/cast v1.6.0 // indirect
+	github.com/spf13/cast v1.7.0 // indirect
 	github.com/spf13/cobra v1.8.1 // indirect
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
@@ -105,14 +105,14 @@ require (
 	github.com/youmark/pkcs8 v0.0.0-20240726163527-a2c0da244d78 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	go.uber.org/zap v1.27.0 // indirect
-	golang.org/x/crypto v0.25.0 // indirect
+	golang.org/x/crypto v0.26.0 // indirect
 	golang.org/x/exp v0.0.0-20240719175910-8a7402abbf56 // indirect
-	golang.org/x/net v0.27.0 // indirect
-	golang.org/x/oauth2 v0.21.0 // indirect
-	golang.org/x/sync v0.7.0 // indirect
-	golang.org/x/sys v0.22.0 // indirect
-	golang.org/x/text v0.16.0 // indirect
-	golang.org/x/time v0.5.0 // indirect
+	golang.org/x/net v0.28.0 // indirect
+	golang.org/x/oauth2 v0.22.0 // indirect
+	golang.org/x/sync v0.8.0 // indirect
+	golang.org/x/sys v0.23.0 // indirect
+	golang.org/x/text v0.17.0 // indirect
+	golang.org/x/time v0.6.0 // indirect
 	google.golang.org/protobuf v1.34.2 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
