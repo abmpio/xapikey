@@ -24,7 +24,8 @@ func newApiKeyService(repository mongodbr.IRepository) xapikey.IAkskService {
 }
 
 func (s *apiKeyService) FindByAk(app string, accessKey string) (*xapikey.Aksk, error) {
-	redisValue := getServiceGroup().redisService.StringGet(s.getAkRedisKey(app, accessKey))
+	redisKey := s.getAkRedisKey(app, accessKey)
+	redisValue := getServiceGroup().redisService.StringGet(redisKey)
 	if redisValue.Err() == nil && redisValue.Exist() {
 		aksk := &xapikey.Aksk{}
 		err := redisValue.ToValue(aksk)
@@ -37,9 +38,11 @@ func (s *apiKeyService) FindByAk(app string, accessKey string) (*xapikey.Aksk, e
 		return nil, err
 	}
 	if aksk != nil {
-		err = getServiceGroup().redisService.StringSet(s.getAkRedisKey(app, accessKey), aksk)
+		err = getServiceGroup().redisService.StringSet(redisKey, aksk)
 		if err != nil {
-			log.Logger.Warn(fmt.Sprintf("将app与accesskey保存到xapikey时出现异常,err:%s", err.Error()))
+			log.Logger.Warn(fmt.Sprintf("将xapikey保存到redis时出现异常,key:%s,err:%s",
+				redisKey,
+				err.Error()))
 			return aksk, nil
 		}
 	}
