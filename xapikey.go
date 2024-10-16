@@ -8,12 +8,13 @@ import (
 	"time"
 
 	"github.com/abmpio/entity"
+	"github.com/abmpio/mongodbr"
 	uuid "github.com/satori/go.uuid"
 )
 
 // AKSK 结构体定义了 Access Key（AK）和 Secret Key（SK）的结构
 type Aksk struct {
-	entity.EntityWithUser `bson:",inline"`
+	mongodbr.AuditedEntity `bson:",inline"`
 	// 所属app
 	App string `json:"app" bson:"app"`
 
