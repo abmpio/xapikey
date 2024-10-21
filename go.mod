@@ -9,7 +9,7 @@ require (
 	github.com/abmpio/entity v0.0.0-20241016075049-a6c60bc56b74
 	github.com/abmpio/irisx/controllerx v0.0.0-20241015024452-e98e55900348
 	github.com/abmpio/mongodbr v0.0.0-20241015022955-fa7539018746
-	github.com/abmpio/redisx v0.0.0-20240524214109-e83ee1a5dd30
+	github.com/abmpio/redisx v0.0.0-20241020105559-2c351d4b0ebe
 	github.com/abmpio/webserver v0.0.0-20240815071409-944cbdcc9129
 	github.com/casdoor/casdoor-go-sdk v0.50.0
 	github.com/kataras/iris/v12 v12.2.11

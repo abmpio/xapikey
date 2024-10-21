@@ -27,8 +27,8 @@ github.com/abmpio/libx v0.0.0-20241002083624-e3d5751cb744 h1:ig6MK5pvUetnvTokbk2
 github.com/abmpio/libx v0.0.0-20241002083624-e3d5751cb744/go.mod h1:1FdlmnwDWa2mTehDyH2JgEozqZv2uTys6LM+PmYRCZg=
 github.com/abmpio/mongodbr v0.0.0-20241015022955-fa7539018746 h1:HG91jxEtkLlW84uoUZmBmuZ3+j46mWWRjs1TyhnZdqg=
 github.com/abmpio/mongodbr v0.0.0-20241015022955-fa7539018746/go.mod h1:S68iaQfEQNYG97YvEo7TN5+OiU1iSB3K0m6z+v2pA/g=
-github.com/abmpio/redisx v0.0.0-20240524214109-e83ee1a5dd30 h1:lfgGE67VQ2IpDx8J2CHPKxX7HxHntdAQczjqRnoWsr4=
-github.com/abmpio/redisx v0.0.0-20240524214109-e83ee1a5dd30/go.mod h1:qOciG4ffXfz5FPjcqbBs2uR3b9afELU60WM167jpCeU=
+github.com/abmpio/redisx v0.0.0-20241020105559-2c351d4b0ebe h1:210Woy4BwOqnHrbpqTawbL5oZsQWpTjh7SvuLLD0898=
+github.com/abmpio/redisx v0.0.0-20241020105559-2c351d4b0ebe/go.mod h1:qOciG4ffXfz5FPjcqbBs2uR3b9afELU60WM167jpCeU=
 github.com/abmpio/webserver v0.0.0-20240815071409-944cbdcc9129 h1:IaWgZnel2gb1mOf8tJs817YNESDIgDpWHS3a/JWtTq4=
 github.com/abmpio/webserver v0.0.0-20240815071409-944cbdcc9129/go.mod h1:o+FP/+xklFOZuBOpphjOZ66qT/Y2P9FB3zzBMkxoeiY=
 github.com/ajg/form v1.5.1 h1:t9c7v8JUKu/XxOGBU0yjNpaMloxGEJhUkqFRq0ibGeU=
