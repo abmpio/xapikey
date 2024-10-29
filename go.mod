@@ -8,7 +8,7 @@ require (
 	github.com/abmpio/configurationx v0.0.0-20240520083200-bcc6a8bb57fa
 	github.com/abmpio/entity v0.0.0-20241016075049-a6c60bc56b74
 	github.com/abmpio/irisx/controllerx v0.0.0-20241024103639-a67b8b21d17e
-	github.com/abmpio/mongodbr v0.0.0-20241024025321-881e82fbf084
+	github.com/abmpio/mongodbr v0.0.0-20241029022631-8182269c6e0b
 	github.com/abmpio/redisx v0.0.0-20241020105559-2c351d4b0ebe
 	github.com/abmpio/webserver v0.0.0-20240815071409-944cbdcc9129
 	github.com/casdoor/casdoor-go-sdk v1.2.0
@@ -25,7 +25,7 @@ require (
 	github.com/Joker/jade v1.1.3 // indirect
 	github.com/Shopify/goreferrer v0.0.0-20240724165105-aceaa0259138 // indirect
 	github.com/abmpio/irisx/casdoor v0.0.0-20241024103639-a67b8b21d17e // indirect
-	github.com/abmpio/libx v0.0.0-20241002083624-e3d5751cb744 // indirect
+	github.com/abmpio/libx v0.0.0-20241029040836-37d1161ba509 // indirect
 	github.com/andybalholm/brotli v1.1.1 // indirect
 	github.com/armon/go-metrics v0.4.1 // indirect
 	github.com/aymerick/douceur v0.2.0 // indirect
