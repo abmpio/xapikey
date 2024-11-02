@@ -27,15 +27,15 @@ func newApiKeyController() *apiKeyController {
 }
 
 func (c *apiKeyController) RegistRouter(webapp *webapp.Application, routerPath string) {
-	c.EntityController.RouterPath = routerPath
 	c.EntityController.Options.EnableFilterCurrentUser = true
 	log.Logger.Debug(fmt.Sprintf("正在构建路由,%s...", routerPath))
 
 	routerParty := c.EntityController.RegistRouter(webapp,
+		controllerx.BaseEntityControllerWithRouterPath(routerPath),
 		controllerx.BaseEntityControllerWithAllEndpointDisabled(true),
 	)
-	routerParty.Post("/", c.MergeAuthenticatedContextIfNeed(c.Options.AuthenticatedDisabled, c.create)...)
-	routerParty.Get("/all", c.MergeAuthenticatedContextIfNeed(c.Options.AuthenticatedDisabled, c.all)...)
+	routerParty.Post("/", c.create)
+	routerParty.Get("/all", c.all)
 }
 
 type xapiKeyCreateInput struct {
