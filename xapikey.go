@@ -8,13 +8,15 @@ import (
 	"time"
 
 	"github.com/abmpio/entity"
+	"github.com/abmpio/entity/tenancy"
 	"github.com/abmpio/mongodbr"
 	uuid "github.com/satori/go.uuid"
 )
 
 // AKSK 结构体定义了 Access Key（AK）和 Secret Key（SK）的结构
 type Aksk struct {
-	mongodbr.AuditedEntity `bson:",inline"`
+	mongodbr.AuditedEntity      `bson:",inline"`
+	tenancy.MayHaveMultiTenancy `bson:",inline"`
 	// 所属app
 	App string `json:"app" bson:"app"`
 
@@ -41,14 +43,26 @@ func (a *Aksk) Validate() error {
 	if len(a.Alias) <= 0 {
 		return fmt.Errorf("alias不能为空")
 	}
+	if len(a.CreatorId) <= 0 {
+		return fmt.Errorf("creatorId不能为空")
+	}
 	return nil
+}
+
+// 检测是否已过期，过期返回true，否则返回false
+func (a *Aksk) CheckExpired() bool {
+	// 与当前时间相比，校验是否过期
+	if a.ExpirationTime == nil {
+		return false
+	}
+	return a.ExpirationTime.Local().UnixMilli() < time.Now().Local().UnixMilli()
 }
 
 type IAkskService interface {
 	entity.IEntityService[Aksk]
 
 	//根据app与ak来查找列表
-	FindByAk(app string, ak string) (*Aksk, error)
+	FindByAk(tenantId string, app string, ak string) (*Aksk, error)
 }
 
 // 生成 AK/SK 的函数

@@ -26,6 +26,16 @@ func mustCreateIndexes() {
 	//init indexes
 	mustCreateIndexForEntity[xapikey.Aksk]([]mongo.IndexModel{
 		{Keys: bson.M{"creationTime": -1}},
+		{Keys: bson.D{
+			{Key: "tenantId", Value: 1},
+			{Key: "app", Value: 1},
+			{Key: "accessKey", Value: 1},
+		}},
+		{Keys: bson.D{
+			{Key: "tenantId", Value: 1},
+			{Key: "app", Value: 1},
+			{Key: "alias", Value: 1},
+		}},
 	})
 }
 

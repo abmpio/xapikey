@@ -6,6 +6,7 @@ import (
 
 	"github.com/abmpio/abmp/pkg/log"
 	"github.com/abmpio/app/host"
+	"github.com/abmpio/entity/tenancy"
 	"github.com/abmpio/irisx/controllerx"
 	"github.com/abmpio/xapikey"
 	"github.com/abmpio/xapikey/options"
@@ -54,7 +55,7 @@ func serveHTTP(ctx *context.Context) {
 	}
 	var apiKey *xapikey.Aksk
 	for _, eachAppName := range appNameList {
-		apiKey, err = getServiceGroup().apikeyService.FindByAk(eachAppName, ak)
+		apiKey, err = getServiceGroup().apikeyService.FindByAk(tenancy.TenantIdFromContext(ctx), eachAppName, ak)
 		if err != nil {
 			log.Logger.Warn(fmt.Sprintf("find x-api-key error: %v", err))
 			ctx.StopExecution()
@@ -67,7 +68,7 @@ func serveHTTP(ctx *context.Context) {
 		}
 	}
 	if apiKey == nil {
-		err := fmt.Errorf(fmt.Sprintf("invalid x-api-key,ak:%s", ak))
+		err := fmt.Errorf("invalid x-api-key,ak:%s", ak)
 		log.Logger.Warn(err.Error())
 		ctx.StopExecution()
 		ctx.StatusCode(iris.StatusUnauthorized)
@@ -75,7 +76,17 @@ func serveHTTP(ctx *context.Context) {
 		return
 	}
 	if apiKey.SecretKey != sk {
-		err := fmt.Errorf(fmt.Sprintf("invalid x-api-key,ak:%s", ak))
+		err := fmt.Errorf("invalid x-api-key,ak:%s", ak)
+		log.Logger.Warn(err.Error())
+		ctx.StopExecution()
+		ctx.StatusCode(iris.StatusUnauthorized)
+		ctx.WriteString(err.Error())
+		return
+	}
+	expired := apiKey.CheckExpired()
+	if expired {
+		// 已经过期
+		err := fmt.Errorf("invalid x-api-key,ak:%s", ak)
 		log.Logger.Warn(err.Error())
 		ctx.StopExecution()
 		ctx.StatusCode(iris.StatusUnauthorized)

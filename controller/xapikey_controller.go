@@ -1,17 +1,19 @@
 package controller
 
 import (
+	"errors"
 	"fmt"
 	"time"
 
 	"github.com/abmpio/abmp/pkg/log"
+	"github.com/abmpio/app/host"
+	"github.com/abmpio/entity/tenancy"
 	"github.com/abmpio/irisx/controllerx"
-	"github.com/abmpio/mongodbr"
 	webapp "github.com/abmpio/webserver/app"
 	"github.com/abmpio/webserver/controller"
 	"github.com/abmpio/xapikey"
 	"github.com/kataras/iris/v12"
-	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 type apiKeyController struct {
@@ -36,65 +38,56 @@ func (c *apiKeyController) RegistRouter(webapp *webapp.Application, routerPath s
 	)
 	routerParty.Post("/", c.create)
 	routerParty.Get("/all", c.all)
+	routerParty.Delete("/{id}", c.delete)
 }
 
 type xapiKeyCreateInput struct {
 	// 所属app
-	App            string     `json:"app"`
 	Alias          string     `json:"alias"`
 	Description    string     `json:"description"`
 	ExpirationTime *time.Time `json:"expirationTime"`
 	Status         bool       `json:"status"`
 	IpWhitelist    string     `json:"ipWhitelist"`
-
-	Properties map[string]interface{} `json:"properties"`
 }
 
 func (c *apiKeyController) create(ctx iris.Context) {
-	currentUserId := controllerx.GetUserId(ctx)
 	input := &xapiKeyCreateInput{}
 	err := ctx.ReadJSON(&input)
 	if err != nil {
 		controller.HandleErrorBadRequest(ctx, err)
 		return
 	}
-	newXapiKey := &xapikey.Aksk{
-		App:            input.App,
+	if len(input.Alias) <= 0 {
+		controller.HandleErrorBadRequest(ctx, fmt.Errorf("alias 字段不能为空"))
+		return
+	}
+	app := host.GetHostEnvironment().GetEnvString(host.ENV_AppName)
+	if len(app) <= 0 {
+		controller.HandleErrorInternalServerError(ctx, fmt.Errorf("本应用不支持创建api key"))
+		return
+	}
+	tenantId := tenancy.TenantIdFromContext(ctx)
+	newAksk := &xapikey.Aksk{
+		App:            app,
 		Alias:          input.Alias,
 		Status:         input.Status,
 		IpWhitelist:    input.IpWhitelist,
 		Description:    input.Description,
 		ExpirationTime: input.ExpirationTime,
 	}
-	if newXapiKey.ExpirationTime != nil {
-		newXapiKey.ExpirationTime = input.ExpirationTime
+	// set current tenant
+	newAksk.TenantId = tenantId
+	if newAksk.ExpirationTime != nil {
+		newAksk.ExpirationTime = input.ExpirationTime
 	}
 	ak, sk := xapikey.GenerateAKSK()
-	newXapiKey.AccessKey = ak
-	newXapiKey.SecretKey = sk
-	err = mongodbr.Validate(newXapiKey)
-	if err != nil {
-		controller.HandleErrorBadRequest(ctx, err)
-		return
-	}
+	newAksk.AccessKey = ak
+	newAksk.SecretKey = sk
 
-	newXapiKey.BeforeCreate()
 	// handler user info
-	c.SetUserInfo(ctx, newXapiKey)
+	c.SetUserInfo(ctx, newAksk)
 
-	list, err := getServiceGroup().apikeyService.FindList(bson.M{
-		"creatorId": currentUserId,
-		"alias":     newXapiKey.Alias,
-	})
-	if err != nil {
-		controller.HandleErrorInternalServerError(ctx, err)
-		return
-	}
-	if len(list) > 0 {
-		controller.HandleErrorInternalServerError(ctx, fmt.Errorf("已经存在着名称为: %s 的其它记录", input.Alias))
-		return
-	}
-	newItem, err := c.GetEntityService().Create(newXapiKey)
+	newItem, err := getServiceGroup().apikeyService.Create(newAksk)
 	if err != nil {
 		controller.HandleErrorInternalServerError(ctx, err)
 		return
@@ -137,4 +130,24 @@ func (c *apiKeyController) all(ctx iris.Context) {
 		return
 	}
 	controller.HandleSuccessWithData(ctx, list)
+}
+
+// delete
+func (c *apiKeyController) delete(ctx iris.Context) {
+	idValue := ctx.Params().Get("id")
+	if len(idValue) <= 0 {
+		controller.HandleErrorBadRequest(ctx, errors.New("id must not be empty"))
+		return
+	}
+	oid, err := primitive.ObjectIDFromHex(idValue)
+	if err != nil {
+		controller.HandleErrorBadRequest(ctx, fmt.Errorf("invalid id format,err:%s", err.Error()))
+		return
+	}
+	err = getServiceGroup().apikeyService.Delete(oid)
+	if err != nil {
+		controller.HandleErrorInternalServerError(ctx, err)
+		return
+	}
+	controller.HandleSuccess(ctx)
 }
