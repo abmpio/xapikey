@@ -19,10 +19,10 @@ github.com/abmpio/configurationx v0.0.0-20240520083200-bcc6a8bb57fa h1:a+PVM0zKo
 github.com/abmpio/configurationx v0.0.0-20240520083200-bcc6a8bb57fa/go.mod h1:+dKpgI9DK0dmz83PFE2sKDIbflkKS8o8dQkgnCX3orU=
 github.com/abmpio/entity v0.0.0-20241104031145-e9dbe71de56d h1:t8o3oPIEV2uZjYjTsOQWEFS+suUiL2ZXQ1gxZnJZPvk=
 github.com/abmpio/entity v0.0.0-20241104031145-e9dbe71de56d/go.mod h1:tm9VqeD0lVt+yPAziAeJA1WTJRTfVIJSfZMUkPcBezo=
-github.com/abmpio/irisx/casdoor v0.0.0-20241024103639-a67b8b21d17e h1:k7w7ylfOsbF43XB1LQxrc/F8E87pFL+F8V8qJy3wt/I=
-github.com/abmpio/irisx/casdoor v0.0.0-20241024103639-a67b8b21d17e/go.mod h1:BdkG0gNba/inaBRReHi057/CHtZNX7KhCzE6khg8EmQ=
-github.com/abmpio/irisx/controllerx v0.0.0-20241104025022-c62d256336dd h1:MLKSqbHgdLptWLcxJUaZQAJVT816IbfJonLnzFukq4s=
-github.com/abmpio/irisx/controllerx v0.0.0-20241104025022-c62d256336dd/go.mod h1:DTQF40Miwi12ieMhglTar2sCyX7ueTONE9J52/H674g=
+github.com/abmpio/irisx/casdoor v0.0.0-20241105041954-8fd10deda844 h1:b710tKIFRo5J27NKAcyZtnATxDNWk2ByzCIRMg7MPy8=
+github.com/abmpio/irisx/casdoor v0.0.0-20241105041954-8fd10deda844/go.mod h1:wp0RHDN3hJx776qfvHqjB26CrTVWvT2DuTXD/k6/s/Y=
+github.com/abmpio/irisx/controllerx v0.0.0-20241105041954-8fd10deda844 h1:PZ+VsOCC067nXdKShJDlIwTNkse2T2t1VLLj/qzGrl0=
+github.com/abmpio/irisx/controllerx v0.0.0-20241105041954-8fd10deda844/go.mod h1:qLDsFwDLYC8FFz1dns0WFibcu8xWI/vmhz62UtdgT+4=
 github.com/abmpio/libx v0.0.0-20241029040836-37d1161ba509 h1:1DcXz4J7bDsZsDK4Wz/341FcFuxY1Y4UrT4IKWlXLlE=
 github.com/abmpio/libx v0.0.0-20241029040836-37d1161ba509/go.mod h1:1FdlmnwDWa2mTehDyH2JgEozqZv2uTys6LM+PmYRCZg=
 github.com/abmpio/mongodbr v0.0.0-20241029022631-8182269c6e0b h1:mDefkxpSlBnLj766s3GGmEusB9wLf9YJ3aU9hA7+X2g=
@@ -51,8 +51,8 @@ github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973/go.mod h1:Dwedo/Wpr24
 github.com/beorn7/perks v1.0.0/go.mod h1:KWe93zE9D1o94FZ5RNwFwVgaQK1VOXiVxmqh+CedLV8=
 github.com/beorn7/perks v1.0.1/go.mod h1:G2ZrVWU2WbWT9wwq4/hrbKbnv/1ERSJQ0ibhJ6rlkpw=
 github.com/bgentry/speakeasy v0.1.0/go.mod h1:+zsyZBPWlz7T6j88CTgSN5bM796AkVf0kBD4zp0CCIs=
-github.com/casdoor/casdoor-go-sdk v1.2.0 h1:DHLO8joZwgrAgdhhEZCPdrtLHdV89cXAa9UKxT7kwXg=
-github.com/casdoor/casdoor-go-sdk v1.2.0/go.mod h1:cMnkCQJgMYpgAlgEx8reSt1AVaDIQLcJ1zk5pzBaz+4=
+github.com/casdoor/casdoor-go-sdk v1.3.0 h1:iUZKsrNUkhtAoyitFIFw3e6TchctAdoxmVgLDtNAgpc=
+github.com/casdoor/casdoor-go-sdk v1.3.0/go.mod h1:cMnkCQJgMYpgAlgEx8reSt1AVaDIQLcJ1zk5pzBaz+4=
 github.com/cespare/xxhash/v2 v2.1.1/go.mod h1:VGX0DQ3Q6kWi7AoAeZDth3/j3BFtOZR5XLFGgcrjCOs=
 github.com/cespare/xxhash/v2 v2.3.0 h1:UL815xU9SqsFlibzuggzjXhog7bL6oX9BbNZnL2UFvs=
 github.com/cespare/xxhash/v2 v2.3.0/go.mod h1:VGX0DQ3Q6kWi7AoAeZDth3/j3BFtOZR5XLFGgcrjCOs=
