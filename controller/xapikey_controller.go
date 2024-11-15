@@ -38,6 +38,9 @@ func (c *apiKeyController) RegistRouter(webapp *webapp.Application, routerPath s
 	)
 	routerParty.Post("/", c.create)
 	routerParty.Get("/all", c.all)
+	routerParty.Put("/{id}", c.update)
+	routerParty.Post("/{id}/enable", c.enable)
+	routerParty.Post("/{id}/disable", c.disable)
 	routerParty.Delete("/{id}", c.delete)
 }
 
@@ -130,6 +133,135 @@ func (c *apiKeyController) all(ctx iris.Context) {
 		return
 	}
 	controller.HandleSuccessWithData(ctx, list)
+}
+
+func (c *apiKeyController) update(ctx iris.Context) {
+	idValue := ctx.Params().Get("id")
+	if len(idValue) <= 0 {
+		controller.HandleErrorBadRequest(ctx, errors.New("id must not be empty"))
+		return
+	}
+	id, err := primitive.ObjectIDFromHex(idValue)
+	if err != nil {
+		controller.HandleErrorBadRequest(ctx, fmt.Errorf("invalid id,id must be bson id format,id:%s", idValue))
+		return
+	}
+	exitItem, err := getServiceGroup().apikeyService.FindById(id)
+	if err != nil {
+		controller.HandleErrorInternalServerError(ctx, err)
+		return
+	}
+	if exitItem == nil {
+		controller.HandleErrorBadRequest(ctx, fmt.Errorf("not found item,id:%s", idValue))
+		return
+	}
+	var input struct {
+		Description    string     `json:"description"`
+		ExpirationTime *time.Time `json:"expirationTime"`
+		// 状态：启用、禁用等
+		Status bool `json:"status"`
+		// ip白名单,多个ip以;隔开
+		IpWhitelist string `json:"ipWhitelist"`
+	}
+	err = ctx.ReadJSON(&input)
+	if err != nil {
+		controller.HandleErrorBadRequest(ctx, err)
+		return
+	}
+
+	updatedFields := map[string]interface{}{
+		"lastModificationTime": time.Now(),
+		"lastModifierId":       controllerx.GetUserId(ctx),
+		"description":          input.Description,
+		"expirationTime":       input.ExpirationTime,
+		"status":               input.Status,
+		"ipWhitelist":          input.IpWhitelist,
+	}
+
+	err = getServiceGroup().apikeyService.UpdateFields(id, updatedFields)
+	if err != nil {
+		controller.HandleErrorInternalServerError(ctx, err)
+		return
+	}
+	controller.HandleSuccess(ctx)
+}
+
+func (c *apiKeyController) enable(ctx iris.Context) {
+	idValue := ctx.Params().Get("id")
+	if len(idValue) <= 0 {
+		controller.HandleErrorBadRequest(ctx, errors.New("id must not be empty"))
+		return
+	}
+	id, err := primitive.ObjectIDFromHex(idValue)
+	if err != nil {
+		controller.HandleErrorBadRequest(ctx, fmt.Errorf("invalid id,id must be bson id format,id:%s", idValue))
+		return
+	}
+	exitItem, err := getServiceGroup().apikeyService.FindById(id)
+	if err != nil {
+		controller.HandleErrorInternalServerError(ctx, err)
+		return
+	}
+	if exitItem == nil {
+		controller.HandleErrorBadRequest(ctx, fmt.Errorf("not found item,id:%s", idValue))
+		return
+	}
+	if exitItem.Status {
+		controller.HandleSuccess(ctx)
+		return
+	}
+
+	updatedFields := map[string]interface{}{
+		"lastModificationTime": time.Now(),
+		"lastModifierId":       controllerx.GetUserId(ctx),
+		"status":               true,
+	}
+
+	err = getServiceGroup().apikeyService.UpdateFields(id, updatedFields)
+	if err != nil {
+		controller.HandleErrorInternalServerError(ctx, err)
+		return
+	}
+	controller.HandleSuccess(ctx)
+}
+
+func (c *apiKeyController) disable(ctx iris.Context) {
+	idValue := ctx.Params().Get("id")
+	if len(idValue) <= 0 {
+		controller.HandleErrorBadRequest(ctx, errors.New("id must not be empty"))
+		return
+	}
+	id, err := primitive.ObjectIDFromHex(idValue)
+	if err != nil {
+		controller.HandleErrorBadRequest(ctx, fmt.Errorf("invalid id,id must be bson id format,id:%s", idValue))
+		return
+	}
+	exitItem, err := getServiceGroup().apikeyService.FindById(id)
+	if err != nil {
+		controller.HandleErrorInternalServerError(ctx, err)
+		return
+	}
+	if exitItem == nil {
+		controller.HandleErrorBadRequest(ctx, fmt.Errorf("not found item,id:%s", idValue))
+		return
+	}
+	if !exitItem.Status {
+		controller.HandleSuccess(ctx)
+		return
+	}
+
+	updatedFields := map[string]interface{}{
+		"lastModificationTime": time.Now(),
+		"lastModifierId":       controllerx.GetUserId(ctx),
+		"status":               false,
+	}
+
+	err = getServiceGroup().apikeyService.UpdateFields(id, updatedFields)
+	if err != nil {
+		controller.HandleErrorInternalServerError(ctx, err)
+		return
+	}
+	controller.HandleSuccess(ctx)
 }
 
 // delete

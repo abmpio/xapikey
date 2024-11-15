@@ -83,6 +83,15 @@ func serveHTTP(ctx *context.Context) {
 		ctx.WriteString(err.Error())
 		return
 	}
+	if !apiKey.Status {
+		//未启用
+		err := fmt.Errorf("invalid x-api-key,ak:%s", ak)
+		log.Logger.Warn(err.Error())
+		ctx.StopExecution()
+		ctx.StatusCode(iris.StatusUnauthorized)
+		ctx.WriteString(err.Error())
+		return
+	}
 	expired := apiKey.CheckExpired()
 	if expired {
 		// 已经过期

@@ -10,7 +10,7 @@ require (
 	github.com/abmpio/irisx/controllerx v0.0.0-20241105041954-8fd10deda844
 	github.com/abmpio/mongodbr v0.0.0-20241029022631-8182269c6e0b
 	github.com/abmpio/redisx v0.0.0-20241020105559-2c351d4b0ebe
-	github.com/abmpio/webserver v0.0.0-20241102081907-684ce6f904ab
+	github.com/abmpio/webserver v0.0.0-20241115074321-d63cc7ff0261
 	github.com/casdoor/casdoor-go-sdk v1.3.0
 	github.com/kataras/iris/v12 v12.2.11
 	github.com/mitchellh/mapstructure v1.5.0
