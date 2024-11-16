@@ -6,7 +6,6 @@ import (
 
 	"github.com/abmpio/abmp/pkg/log"
 	"github.com/abmpio/app/host"
-	"github.com/abmpio/entity/tenancy"
 	"github.com/abmpio/irisx/controllerx"
 	"github.com/abmpio/xapikey"
 	"github.com/abmpio/xapikey/options"
@@ -55,7 +54,7 @@ func serveHTTP(ctx *context.Context) {
 	}
 	var apiKey *xapikey.Aksk
 	for _, eachAppName := range appNameList {
-		apiKey, err = getServiceGroup().apikeyService.FindByAk(tenancy.TenantIdFromContext(ctx), eachAppName, ak)
+		apiKey, err = getServiceGroup().apikeyService.FindByAk(eachAppName, ak)
 		if err != nil {
 			log.Logger.Warn(fmt.Sprintf("find x-api-key error: %v", err))
 			ctx.StopExecution()

@@ -32,7 +32,6 @@ func mustCreateIndexes() {
 			{Key: "accessKey", Value: 1},
 		}},
 		{Keys: bson.D{
-			{Key: "tenantId", Value: 1},
 			{Key: "app", Value: 1},
 			{Key: "alias", Value: 1},
 		}},

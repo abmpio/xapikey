@@ -7,7 +7,6 @@ import (
 
 	"github.com/abmpio/abmp/pkg/log"
 	"github.com/abmpio/app/host"
-	"github.com/abmpio/entity/tenancy"
 	"github.com/abmpio/irisx/controllerx"
 	webapp "github.com/abmpio/webserver/app"
 	"github.com/abmpio/webserver/controller"
@@ -69,7 +68,6 @@ func (c *apiKeyController) create(ctx iris.Context) {
 		controller.HandleErrorInternalServerError(ctx, fmt.Errorf("本应用不支持创建api key"))
 		return
 	}
-	tenantId := tenancy.TenantIdFromContext(ctx)
 	newAksk := &xapikey.Aksk{
 		App:            app,
 		Alias:          input.Alias,
@@ -78,8 +76,6 @@ func (c *apiKeyController) create(ctx iris.Context) {
 		Description:    input.Description,
 		ExpirationTime: input.ExpirationTime,
 	}
-	// set current tenant
-	newAksk.TenantId = tenantId
 	if newAksk.ExpirationTime != nil {
 		newAksk.ExpirationTime = input.ExpirationTime
 	}

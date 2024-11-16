@@ -24,8 +24,8 @@ func newApiKeyService(repository mongodbr.IRepository) xapikey.IAkskService {
 	return s
 }
 
-func (s *apiKeyService) FindByAk(tenantId string, app string, accessKey string) (aksk *xapikey.Aksk, err error) {
-	key := getRedisKeyForXApiKey(tenantId, app, accessKey)
+func (s *apiKeyService) FindByAk(app string, accessKey string) (aksk *xapikey.Aksk, err error) {
+	key := getRedisKeyForXApiKey(app, accessKey)
 	redisValue := getServiceGroup().redisService.StringGet(key)
 	if redisValue.Err() != nil {
 		// read redis error
@@ -45,7 +45,7 @@ func (s *apiKeyService) FindByAk(tenantId string, app string, accessKey string) 
 			}
 		}
 	}
-	aksk, err = s._findByAk(tenantId, app, accessKey)
+	aksk, err = s._findByAk(app, accessKey)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +71,6 @@ func (s *apiKeyService) Create(item interface{}) (*xapikey.Aksk, error) {
 		return nil, err
 	}
 	list, err := s.FindList(bson.M{
-		"tenantId":  aksk.TenantId,
 		"app":       aksk.App,
 		"creatorId": aksk.CreatorId,
 		"alias":     aksk.Alias,
@@ -103,7 +102,7 @@ func (s *apiKeyService) UpdateFields(id primitive.ObjectID, update map[string]in
 	if err != nil {
 		return err
 	}
-	s._deleteRedisKey(item.TenantId, item.App, item.AccessKey)
+	s._deleteRedisKey(item.App, item.AccessKey)
 	return nil
 }
 
@@ -120,21 +119,20 @@ func (s *apiKeyService) Delete(id primitive.ObjectID) error {
 	if err != nil {
 		return err
 	}
-	s._deleteRedisKey(item.TenantId, item.App, item.AccessKey)
+	s._deleteRedisKey(item.App, item.AccessKey)
 	return nil
 }
 
-func (s *apiKeyService) _findByAk(tenantId string, app string, accessKey string) (*xapikey.Aksk, error) {
+func (s *apiKeyService) _findByAk(app string, accessKey string) (*xapikey.Aksk, error) {
 	filter := bson.M{
-		"tenantId":  tenantId,
 		"app":       app,
 		"accessKey": accessKey,
 	}
 	return s.FindOne(filter)
 }
 
-func (s *apiKeyService) _deleteRedisKey(tenantId string, app string, ak string) {
-	key := getRedisKeyForXApiKey(tenantId, app, ak)
+func (s *apiKeyService) _deleteRedisKey(app string, ak string) {
+	key := getRedisKeyForXApiKey(app, ak)
 	err := getServiceGroup().redisService.DeleteKey(key)
 	if err != nil {
 		log.Logger.Warn(fmt.Sprintf("在删除xapikey的redis key时出现异常,key:%s,err:%s",
@@ -143,6 +141,6 @@ func (s *apiKeyService) _deleteRedisKey(tenantId string, app string, ak string) 
 	}
 }
 
-func getRedisKeyForXApiKey(tenantId string, app string, ak string) string {
-	return fmt.Sprintf("ak:%s:%s:%s", tenantId, app, ak)
+func getRedisKeyForXApiKey(app string, ak string) string {
+	return fmt.Sprintf("ak:%s:%s", app, ak)
 }

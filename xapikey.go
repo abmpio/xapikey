@@ -8,15 +8,14 @@ import (
 	"time"
 
 	"github.com/abmpio/entity"
-	"github.com/abmpio/entity/tenancy"
 	"github.com/abmpio/mongodbr"
 	uuid "github.com/satori/go.uuid"
 )
 
 // AKSK 结构体定义了 Access Key（AK）和 Secret Key（SK）的结构
 type Aksk struct {
-	mongodbr.AuditedEntity      `bson:",inline"`
-	tenancy.MayHaveMultiTenancy `bson:",inline"`
+	mongodbr.AuditedEntity `bson:",inline"`
+
 	// 所属app
 	App string `json:"app" bson:"app"`
 
@@ -62,7 +61,7 @@ type IAkskService interface {
 	entity.IEntityService[Aksk]
 
 	//根据app与ak来查找列表
-	FindByAk(tenantId string, app string, ak string) (*Aksk, error)
+	FindByAk(app string, ak string) (*Aksk, error)
 }
 
 // 生成 AK/SK 的函数
