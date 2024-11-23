@@ -4,7 +4,7 @@ go 1.22.2
 
 require (
 	github.com/abmpio/abmp v0.0.0-20240708094807-9bfd8036f0dc
-	github.com/abmpio/app v0.0.0-20240708095820-59076d71a526
+	github.com/abmpio/app v0.0.0-20241122102835-1f51c56dd689
 	github.com/abmpio/configurationx v0.0.0-20241119051043-e57d1c23766e
 	github.com/abmpio/entity v0.0.0-20241118102939-03a434644ce0
 	github.com/abmpio/irisx/controllerx v0.0.0-20241105041954-8fd10deda844
