@@ -6,11 +6,11 @@ require (
 	github.com/abmpio/abmp v0.0.0-20240708094807-9bfd8036f0dc
 	github.com/abmpio/app v0.0.0-20241122102835-1f51c56dd689
 	github.com/abmpio/configurationx v0.0.0-20241119051043-e57d1c23766e
-	github.com/abmpio/entity v0.0.0-20241125091718-5e66b966aad6
-	github.com/abmpio/irisx/controllerx v0.0.0-20241105041954-8fd10deda844
+	github.com/abmpio/entity v0.0.0-20241203133107-12f315d09c5a
+	github.com/abmpio/irisx/controllerx v0.0.0-20241105061839-8fb8f49e9f88
 	github.com/abmpio/mongodbr v0.0.0-20241029022631-8182269c6e0b
 	github.com/abmpio/redisx v0.0.0-20241020105559-2c351d4b0ebe
-	github.com/abmpio/webserver v0.0.0-20241119052148-5fb4d67e2226
+	github.com/abmpio/webserver v0.0.0-20241129035955-b9891e5c0d6a
 	github.com/casdoor/casdoor-go-sdk v1.3.0
 	github.com/kataras/iris/v12 v12.2.11
 	github.com/mitchellh/mapstructure v1.5.0
