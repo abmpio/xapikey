@@ -28,7 +28,6 @@ func newApiKeyController() *apiKeyController {
 }
 
 func (c *apiKeyController) RegistRouter(webapp *webapp.Application, routerPath string) {
-	c.EntityController.Options.EnableFilterCurrentUser = true
 	log.Logger.Debug(fmt.Sprintf("正在构建路由,%s...", routerPath))
 
 	routerParty := c.EntityController.RegistRouter(webapp,
@@ -108,11 +107,8 @@ func (c *apiKeyController) all(ctx iris.Context) {
 		return
 	}
 	filter := map[string]interface{}{
-		"app": input.App,
-	}
-	if c.Options.EnableFilterCurrentUser {
-		// auto filter current userId
-		controllerx.AddUserIdFilterIfNeed(filter, &xapikey.Aksk{}, ctx)
+		"app":       input.App,
+		"creatorId": controllerx.GetUserId(ctx),
 	}
 
 	if c.Options.ListFilterFunc != nil {
@@ -151,6 +147,11 @@ func (c *apiKeyController) update(ctx iris.Context) {
 		controller.HandleErrorBadRequest(ctx, fmt.Errorf("not found item,id:%s", idValue))
 		return
 	}
+	userId := controllerx.GetUserId(ctx)
+	if exitItem.CreatorId != userId {
+		controller.HandleErrorForbidden(ctx)
+		return
+	}
 	var input struct {
 		Description    string     `json:"description"`
 		ExpirationTime *time.Time `json:"expirationTime"`
@@ -167,7 +168,7 @@ func (c *apiKeyController) update(ctx iris.Context) {
 
 	updatedFields := map[string]interface{}{
 		"lastModificationTime": time.Now(),
-		"lastModifierId":       controllerx.GetUserId(ctx),
+		"lastModifierId":       userId,
 		"description":          input.Description,
 		"expirationTime":       input.ExpirationTime,
 		"status":               input.Status,
@@ -202,6 +203,12 @@ func (c *apiKeyController) enable(ctx iris.Context) {
 		controller.HandleErrorBadRequest(ctx, fmt.Errorf("not found item,id:%s", idValue))
 		return
 	}
+	userId := controllerx.GetUserId(ctx)
+	if exitItem.CreatorId != userId {
+		controller.HandleErrorForbidden(ctx)
+		return
+	}
+
 	if exitItem.Status {
 		controller.HandleSuccess(ctx)
 		return
@@ -209,7 +216,7 @@ func (c *apiKeyController) enable(ctx iris.Context) {
 
 	updatedFields := map[string]interface{}{
 		"lastModificationTime": time.Now(),
-		"lastModifierId":       controllerx.GetUserId(ctx),
+		"lastModifierId":       userId,
 		"status":               true,
 	}
 
@@ -241,6 +248,12 @@ func (c *apiKeyController) disable(ctx iris.Context) {
 		controller.HandleErrorBadRequest(ctx, fmt.Errorf("not found item,id:%s", idValue))
 		return
 	}
+	userId := controllerx.GetUserId(ctx)
+	if exitItem.CreatorId != userId {
+		controller.HandleErrorForbidden(ctx)
+		return
+	}
+
 	if !exitItem.Status {
 		controller.HandleSuccess(ctx)
 		return
@@ -248,7 +261,7 @@ func (c *apiKeyController) disable(ctx iris.Context) {
 
 	updatedFields := map[string]interface{}{
 		"lastModificationTime": time.Now(),
-		"lastModifierId":       controllerx.GetUserId(ctx),
+		"lastModifierId":       userId,
 		"status":               false,
 	}
 
@@ -270,6 +283,20 @@ func (c *apiKeyController) delete(ctx iris.Context) {
 	oid, err := primitive.ObjectIDFromHex(idValue)
 	if err != nil {
 		controller.HandleErrorBadRequest(ctx, fmt.Errorf("invalid id format,err:%s", err.Error()))
+		return
+	}
+	exitItem, err := getServiceGroup().apikeyService.FindById(oid)
+	if err != nil {
+		controller.HandleErrorInternalServerError(ctx, err)
+		return
+	}
+	if exitItem == nil {
+		controller.HandleErrorBadRequest(ctx, fmt.Errorf("not found item,id:%s", idValue))
+		return
+	}
+	userId := controllerx.GetUserId(ctx)
+	if exitItem.CreatorId != userId {
+		controller.HandleErrorForbidden(ctx)
 		return
 	}
 	err = getServiceGroup().apikeyService.Delete(oid)
