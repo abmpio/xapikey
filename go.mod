@@ -8,7 +8,7 @@ require (
 	github.com/abmpio/configurationx v0.0.0-20241119051043-e57d1c23766e
 	github.com/abmpio/entity v0.0.0-20241203133107-12f315d09c5a
 	github.com/abmpio/irisx/controllerx v0.0.0-20241214161408-5e9df72f6229
-	github.com/abmpio/mongodbr v0.0.0-20241029022631-8182269c6e0b
+	github.com/abmpio/mongodbr v0.0.0-20241218082933-7f7bb493152d
 	github.com/abmpio/redisx v0.0.0-20241020105559-2c351d4b0ebe
 	github.com/abmpio/webserver v0.0.0-20241129035955-b9891e5c0d6a
 	github.com/casdoor/casdoor-go-sdk v1.3.0
@@ -104,13 +104,13 @@ require (
 	github.com/youmark/pkcs8 v0.0.0-20240726163527-a2c0da244d78 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	go.uber.org/zap v1.27.0 // indirect
-	golang.org/x/crypto v0.29.0 // indirect
+	golang.org/x/crypto v0.31.0 // indirect
 	golang.org/x/exp v0.0.0-20241108190413-2d47ceb2692f // indirect
 	golang.org/x/net v0.30.0 // indirect
 	golang.org/x/oauth2 v0.23.0 // indirect
-	golang.org/x/sync v0.9.0 // indirect
-	golang.org/x/sys v0.27.0 // indirect
-	golang.org/x/text v0.20.0 // indirect
+	golang.org/x/sync v0.10.0 // indirect
+	golang.org/x/sys v0.28.0 // indirect
+	golang.org/x/text v0.21.0 // indirect
 	golang.org/x/time v0.7.0 // indirect
 	google.golang.org/protobuf v1.35.1 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
