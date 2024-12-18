@@ -43,7 +43,6 @@ func (c *apiKeyController) RegistRouter(webapp *webapp.Application, routerPath s
 }
 
 type xapiKeyCreateInput struct {
-	// 所属app
 	Alias          string     `json:"alias"`
 	Description    string     `json:"description"`
 	ExpirationTime *time.Time `json:"expirationTime"`
