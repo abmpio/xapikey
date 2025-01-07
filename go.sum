@@ -17,8 +17,8 @@ github.com/abmpio/app v0.0.0-20241122102835-1f51c56dd689 h1:ypVSSmkQPq3fpdq73pHz
 github.com/abmpio/app v0.0.0-20241122102835-1f51c56dd689/go.mod h1:xlOyDCDpWfovVB9cJ7asQvpy92qtZ1udAjGzQoHyYZE=
 github.com/abmpio/configurationx v0.0.0-20241119051043-e57d1c23766e h1:v7wW8iCEhTwcwabYZ6rXhV/usNkoA2YcFqn+kGu9LjU=
 github.com/abmpio/configurationx v0.0.0-20241119051043-e57d1c23766e/go.mod h1:+dKpgI9DK0dmz83PFE2sKDIbflkKS8o8dQkgnCX3orU=
-github.com/abmpio/entity v0.0.0-20241203133107-12f315d09c5a h1:TITCrpX/BN7n0sQNZkkSV98KJMEghEaNI7VHGyncPkc=
-github.com/abmpio/entity v0.0.0-20241203133107-12f315d09c5a/go.mod h1:tm9VqeD0lVt+yPAziAeJA1WTJRTfVIJSfZMUkPcBezo=
+github.com/abmpio/entity v0.0.0-20250107180536-d82cac5a4ff8 h1:ZyZWrZuneV3LxNeSpW4K7TyhoDqdnauVePYaOUQ4lNc=
+github.com/abmpio/entity v0.0.0-20250107180536-d82cac5a4ff8/go.mod h1:tm9VqeD0lVt+yPAziAeJA1WTJRTfVIJSfZMUkPcBezo=
 github.com/abmpio/irisx/casdoor v0.0.0-20241105041954-8fd10deda844 h1:b710tKIFRo5J27NKAcyZtnATxDNWk2ByzCIRMg7MPy8=
 github.com/abmpio/irisx/casdoor v0.0.0-20241105041954-8fd10deda844/go.mod h1:wp0RHDN3hJx776qfvHqjB26CrTVWvT2DuTXD/k6/s/Y=
 github.com/abmpio/irisx/controllerx v0.0.0-20241214161408-5e9df72f6229 h1:JkAP3vOAYnj8SS+baFM3IqiwB/gHbDiVl5Jvx8ph8uE=
@@ -401,8 +401,8 @@ golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACk
 golang.org/x/crypto v0.0.0-20190923035154-9ee001bba392/go.mod h1:/lpIB1dKB+9EgE3H3cr1v9wB50oz8l4C4h62xy7jSTY=
 golang.org/x/crypto v0.0.0-20191011191535-87dc89f01550/go.mod h1:yigFU9vqHzYiE8UmvKecakEJjdnWj3jj499lnFckfCI=
 golang.org/x/crypto v0.0.0-20210921155107-089bfa567519/go.mod h1:GvvjBRRGRdwPK5ydBHafDWAxML/pGHZbMvKqRZ5+Abc=
-golang.org/x/crypto v0.31.0 h1:ihbySMvVjLAeSH1IbfcRTkD/iNscyz8rGzjF/E5hV6U=
-golang.org/x/crypto v0.31.0/go.mod h1:kDsLvtWBEx7MV9tJOj9bnXsPbxwJQ6csT/x4KIN4Ssk=
+golang.org/x/crypto v0.32.0 h1:euUpcYgM8WcP71gNpTqQCn6rC2t6ULUPiOzfWaXVVfc=
+golang.org/x/crypto v0.32.0/go.mod h1:ZnnJkOaASj8g0AjIduWNlq2NRxL0PlBrbKVyZ6V/Ugc=
 golang.org/x/exp v0.0.0-20241108190413-2d47ceb2692f h1:XdNn9LlyWAhLVp6P/i8QYBW+hlyhrhei9uErw2B5GJo=
 golang.org/x/exp v0.0.0-20241108190413-2d47ceb2692f/go.mod h1:D5SMRVC3C2/4+F/DB1wZsLRnSNimn2Sp/NPsCrsv8ak=
 golang.org/x/mod v0.5.1/go.mod h1:5OXOZSfqPIIbmVBIIKWRFfZjPR0E5r58TLhUjH0a2Ro=
@@ -457,8 +457,8 @@ golang.org/x/sys v0.0.0-20220722155257-8c9f86f7a55f/go.mod h1:oPkhp1MJrh7nUepCBc
 golang.org/x/sys v0.0.0-20220728004956-3c1f35247d10/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/sys v0.0.0-20220811171246-fbc7d0a398ab/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/sys v0.6.0/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
-golang.org/x/sys v0.28.0 h1:Fksou7UEQUWlKvIdsqzJmUmCX3cZuD2+P3XyyzwMhlA=
-golang.org/x/sys v0.28.0/go.mod h1:/VUhepiaJMQUp4+oa/7Zr1D23ma6VTLIYjOOTFZPUcA=
+golang.org/x/sys v0.29.0 h1:TPYlXGxvx1MGTn2GiZDhnjPA9wZzZeGKHHmKhHYvgaU=
+golang.org/x/sys v0.29.0/go.mod h1:/VUhepiaJMQUp4+oa/7Zr1D23ma6VTLIYjOOTFZPUcA=
 golang.org/x/term v0.0.0-20201126162022-7de9c90e9dd1/go.mod h1:bj7SfCRtBDWHUb9snDiAeCFNEtKQo2Wmx5Cou7ajbmo=
 golang.org/x/term v0.0.0-20210927222741-03fcf44c2211/go.mod h1:jbD1KX2456YbFQfuXm/mYQcufACuNUgVhRMnK/tPxf8=
 golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
