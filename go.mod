@@ -6,7 +6,7 @@ require (
 	github.com/abmpio/abmp v0.0.0-20240708094807-9bfd8036f0dc
 	github.com/abmpio/app v0.0.0-20241122102835-1f51c56dd689
 	github.com/abmpio/configurationx v0.0.0-20241119051043-e57d1c23766e
-	github.com/abmpio/entity v0.0.0-20250107180536-d82cac5a4ff8
+	github.com/abmpio/entity v0.0.0-20250108101627-56b73a50aafe
 	github.com/abmpio/irisx/controllerx v0.0.0-20241214161408-5e9df72f6229
 	github.com/abmpio/mongodbr v0.0.0-20241218082933-7f7bb493152d
 	github.com/abmpio/redisx v0.0.0-20241020105559-2c351d4b0ebe
@@ -15,7 +15,7 @@ require (
 	github.com/kataras/iris/v12 v12.2.11
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/satori/go.uuid v1.2.0
-	go.mongodb.org/mongo-driver v1.17.1
+	go.mongodb.org/mongo-driver v1.17.2
 )
 
 require (
@@ -25,7 +25,7 @@ require (
 	github.com/Joker/jade v1.1.3 // indirect
 	github.com/Shopify/goreferrer v0.0.0-20240724165105-aceaa0259138 // indirect
 	github.com/abmpio/irisx/casdoor v0.0.0-20241105041954-8fd10deda844 // indirect
-	github.com/abmpio/libx v0.0.0-20241029040836-37d1161ba509 // indirect
+	github.com/abmpio/libx v0.0.0-20250108082210-97c57f57aa5f // indirect
 	github.com/andybalholm/brotli v1.1.1 // indirect
 	github.com/armon/go-metrics v0.4.1 // indirect
 	github.com/aymerick/douceur v0.2.0 // indirect
