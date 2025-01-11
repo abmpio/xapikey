@@ -4,13 +4,13 @@ go 1.22.2
 
 require (
 	github.com/abmpio/abmp v0.0.0-20240708094807-9bfd8036f0dc
-	github.com/abmpio/app v0.0.0-20241122102835-1f51c56dd689
-	github.com/abmpio/configurationx v0.0.0-20241119051043-e57d1c23766e
-	github.com/abmpio/entity v0.0.0-20250108101627-56b73a50aafe
-	github.com/abmpio/irisx/controllerx v0.0.0-20241214161408-5e9df72f6229
-	github.com/abmpio/mongodbr v0.0.0-20241218082933-7f7bb493152d
+	github.com/abmpio/app v0.0.0-20250110131404-0d2aea675617
+	github.com/abmpio/configurationx v0.0.0-20250101081830-0ad7cbf2589c
+	github.com/abmpio/entity v0.0.0-20250110144511-a9fd2bf2b5df
+	github.com/abmpio/irisx/controllerx v0.0.0-20250110145138-1be16ffda8f1
+	github.com/abmpio/mongodbr v0.0.0-20250110132302-d280479ffedf
 	github.com/abmpio/redisx v0.0.0-20241020105559-2c351d4b0ebe
-	github.com/abmpio/webserver v0.0.0-20241129035955-b9891e5c0d6a
+	github.com/abmpio/webserver v0.0.0-20250110142900-e3015d020ec0
 	github.com/casdoor/casdoor-go-sdk v1.3.0
 	github.com/kataras/iris/v12 v12.2.11
 	github.com/mitchellh/mapstructure v1.5.0
@@ -24,7 +24,7 @@ require (
 	github.com/CloudyKit/jet/v6 v6.2.0 // indirect
 	github.com/Joker/jade v1.1.3 // indirect
 	github.com/Shopify/goreferrer v0.0.0-20240724165105-aceaa0259138 // indirect
-	github.com/abmpio/irisx/casdoor v0.0.0-20241105041954-8fd10deda844 // indirect
+	github.com/abmpio/irisx/casdoor v0.0.0-20250110145138-1be16ffda8f1 // indirect
 	github.com/abmpio/libx v0.0.0-20250108082210-97c57f57aa5f // indirect
 	github.com/andybalholm/brotli v1.1.1 // indirect
 	github.com/armon/go-metrics v0.4.1 // indirect

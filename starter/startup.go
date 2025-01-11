@@ -1,6 +1,8 @@
 package starter
 
 import (
+	"fmt"
+
 	"github.com/abmpio/abmp/pkg/log"
 	"github.com/abmpio/app"
 	"github.com/abmpio/app/cli"
@@ -15,6 +17,8 @@ import (
 )
 
 func init() {
+	fmt.Println("plugins.xapikey.starter init")
+
 	cli.ConfigureService(serviceConfigurator)
 }
 
