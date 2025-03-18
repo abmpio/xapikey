@@ -14,10 +14,6 @@ func init() {
 }
 
 func serviceConfigurator(cliApp cli.CliApplication) {
-	if app.HostApplication.SystemConfig().App.IsRunInCli {
-		return
-	}
-
 	database := getDatabase()
 	//注册服务到ioc容器中
 	xapiKeyService := newApiKeyService(database.GetRepository(new(xapikey.Aksk)))

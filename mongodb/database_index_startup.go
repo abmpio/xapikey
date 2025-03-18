@@ -5,7 +5,6 @@ import (
 	"strings"
 
 	"github.com/abmpio/abmp/pkg/log"
-	"github.com/abmpio/app"
 	"github.com/abmpio/app/cli"
 	"github.com/abmpio/entity/mongodb"
 	"github.com/abmpio/mongodbr"
@@ -16,9 +15,6 @@ import (
 )
 
 func mustCreateIndexConfigurator(cliApp cli.CliApplication) {
-	if app.HostApplication.SystemConfig().App.IsRunInCli {
-		return
-	}
 	mustCreateIndexes()
 }
 
