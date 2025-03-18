@@ -11,6 +11,7 @@ import (
 	webapp "github.com/abmpio/webserver/app"
 	"github.com/abmpio/webserver/controller"
 	"github.com/abmpio/xapikey"
+	"github.com/abmpio/xapikey/service"
 	"github.com/kataras/iris/v12"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
@@ -22,7 +23,7 @@ type apiKeyController struct {
 func newApiKeyController() *apiKeyController {
 	c := &apiKeyController{}
 	c.EntityController = controllerx.EntityController[xapikey.Aksk]{
-		EntityService: getServiceGroup().apikeyService,
+		EntityService: service.ApiKeyService(),
 	}
 	return c
 }
@@ -84,7 +85,7 @@ func (c *apiKeyController) create(ctx iris.Context) {
 	// handler user info
 	c.SetUserInfo(ctx, newAksk)
 
-	newItem, err := getServiceGroup().apikeyService.Create(newAksk)
+	newItem, err := service.ApiKeyService().Create(newAksk)
 	if err != nil {
 		controller.HandleErrorInternalServerError(ctx, err)
 		return
@@ -137,7 +138,7 @@ func (c *apiKeyController) update(ctx iris.Context) {
 		controller.HandleErrorBadRequest(ctx, fmt.Errorf("invalid id,id must be bson id format,id:%s", idValue))
 		return
 	}
-	exitItem, err := getServiceGroup().apikeyService.FindById(id)
+	exitItem, err := service.ApiKeyService().FindById(id)
 	if err != nil {
 		controller.HandleErrorInternalServerError(ctx, err)
 		return
@@ -174,7 +175,7 @@ func (c *apiKeyController) update(ctx iris.Context) {
 		"ipWhitelist":          input.IpWhitelist,
 	}
 
-	err = getServiceGroup().apikeyService.UpdateFields(id, updatedFields)
+	err = service.ApiKeyService().UpdateFields(id, updatedFields)
 	if err != nil {
 		controller.HandleErrorInternalServerError(ctx, err)
 		return
@@ -193,7 +194,7 @@ func (c *apiKeyController) enable(ctx iris.Context) {
 		controller.HandleErrorBadRequest(ctx, fmt.Errorf("invalid id,id must be bson id format,id:%s", idValue))
 		return
 	}
-	exitItem, err := getServiceGroup().apikeyService.FindById(id)
+	exitItem, err := service.ApiKeyService().FindById(id)
 	if err != nil {
 		controller.HandleErrorInternalServerError(ctx, err)
 		return
@@ -219,7 +220,7 @@ func (c *apiKeyController) enable(ctx iris.Context) {
 		"status":               true,
 	}
 
-	err = getServiceGroup().apikeyService.UpdateFields(id, updatedFields)
+	err = service.ApiKeyService().UpdateFields(id, updatedFields)
 	if err != nil {
 		controller.HandleErrorInternalServerError(ctx, err)
 		return
@@ -238,7 +239,7 @@ func (c *apiKeyController) disable(ctx iris.Context) {
 		controller.HandleErrorBadRequest(ctx, fmt.Errorf("invalid id,id must be bson id format,id:%s", idValue))
 		return
 	}
-	exitItem, err := getServiceGroup().apikeyService.FindById(id)
+	exitItem, err := service.ApiKeyService().FindById(id)
 	if err != nil {
 		controller.HandleErrorInternalServerError(ctx, err)
 		return
@@ -264,7 +265,7 @@ func (c *apiKeyController) disable(ctx iris.Context) {
 		"status":               false,
 	}
 
-	err = getServiceGroup().apikeyService.UpdateFields(id, updatedFields)
+	err = service.ApiKeyService().UpdateFields(id, updatedFields)
 	if err != nil {
 		controller.HandleErrorInternalServerError(ctx, err)
 		return
@@ -284,7 +285,7 @@ func (c *apiKeyController) delete(ctx iris.Context) {
 		controller.HandleErrorBadRequest(ctx, fmt.Errorf("invalid id format,err:%s", err.Error()))
 		return
 	}
-	exitItem, err := getServiceGroup().apikeyService.FindById(oid)
+	exitItem, err := service.ApiKeyService().FindById(oid)
 	if err != nil {
 		controller.HandleErrorInternalServerError(ctx, err)
 		return
@@ -298,7 +299,7 @@ func (c *apiKeyController) delete(ctx iris.Context) {
 		controller.HandleErrorForbidden(ctx)
 		return
 	}
-	err = getServiceGroup().apikeyService.Delete(oid)
+	err = service.ApiKeyService().Delete(oid)
 	if err != nil {
 		controller.HandleErrorInternalServerError(ctx, err)
 		return
