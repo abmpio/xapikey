@@ -18,8 +18,8 @@ github.com/abmpio/app v0.0.0-20250316102917-c6228484a2a5 h1:nuXaF1tKSoTF7+Xe8G3C
 github.com/abmpio/app v0.0.0-20250316102917-c6228484a2a5/go.mod h1:XlDiEzUk40RG265znUr6aDlBIwBGr3r19omUVC1ui9c=
 github.com/abmpio/configurationx v0.0.0-20250316111113-0d5ed4cdc74a h1:2uFKvcQ+jnKSPm7L/QwVgPIYFttN9CtDFoGlH2Rhxig=
 github.com/abmpio/configurationx v0.0.0-20250316111113-0d5ed4cdc74a/go.mod h1:ag/00tEf57rX7PYFxUJEZOY2YSFzPoV4ETYedw2PDzA=
-github.com/abmpio/entity v0.0.0-20250316105324-94fc0bf94738 h1:SraaQBsabj60DjCF7BCr7IitTE5Ot0rJsahTSZ3LXvw=
-github.com/abmpio/entity v0.0.0-20250316105324-94fc0bf94738/go.mod h1:zem2XKuBL5GAC3r0e6q8I7r5wRU0tHOUxV5s4sZeJmQ=
+github.com/abmpio/entity v0.0.0-20250318095200-30d9f32e2c57 h1:JtGasA1Rv/6yBZeykYGxDXp8m8nVWhEQCjbmhB3BH90=
+github.com/abmpio/entity v0.0.0-20250318095200-30d9f32e2c57/go.mod h1:zem2XKuBL5GAC3r0e6q8I7r5wRU0tHOUxV5s4sZeJmQ=
 github.com/abmpio/irisx/casdoor v0.0.0-20250316100020-50ae1cd9f370 h1:WyYVP52A3fSuJkbUnbGpqBpcun6qG/6cVsYn69ChU5E=
 github.com/abmpio/irisx/casdoor v0.0.0-20250316100020-50ae1cd9f370/go.mod h1:zGXqK3md+MO5PPzKKxqMsUirPqQN18pxFQS7miqlA7s=
 github.com/abmpio/irisx/controllerx v0.0.0-20250316105715-b6ac18447d25 h1:d0AX/B+uZPfbDXJafEZPWNPnVGdaZ3TSiAMAVPDo+H4=

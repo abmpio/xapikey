@@ -8,7 +8,7 @@ require (
 	github.com/abmpio/abmp v0.0.0-20240708094807-9bfd8036f0dc
 	github.com/abmpio/app v0.0.0-20250316102917-c6228484a2a5
 	github.com/abmpio/configurationx v0.0.0-20250316111113-0d5ed4cdc74a
-	github.com/abmpio/entity v0.0.0-20250316105324-94fc0bf94738
+	github.com/abmpio/entity v0.0.0-20250318095200-30d9f32e2c57
 	github.com/abmpio/irisx/controllerx v0.0.0-20250316105715-b6ac18447d25
 	github.com/abmpio/mongodbr v0.0.0-20250316104744-4897aa7fc7aa
 	github.com/abmpio/redisx v0.0.0-20241020105559-2c351d4b0ebe
