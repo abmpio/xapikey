@@ -14,8 +14,9 @@ var (
 )
 
 type serviceGroup struct {
-	redisService  redis.IRedisService
-	apiKeyService xapikey.IAkskService
+	redisService    redis.IRedisService
+	apiKeyService   xapikey.IAkskService
+	userInfoService xapikey.IXApiUserInfoService
 }
 
 // 获取ServiceGroup实例
@@ -34,7 +35,8 @@ func newServiceGroup() *serviceGroup {
 	serviceFactory := &serviceGroup{
 		redisService: app.Context.GetInstance(new(redis.IRedisService)).(redis.IRedisService),
 
-		apiKeyService: app.Context.GetInstance(new(xapikey.IAkskService)).(xapikey.IAkskService),
+		apiKeyService:   app.Context.GetInstance(new(xapikey.IAkskService)).(xapikey.IAkskService),
+		userInfoService: app.Context.GetInstance(new(xapikey.IXApiUserInfoService)).(xapikey.IXApiUserInfoService),
 	}
 	return serviceFactory
 }
@@ -42,4 +44,8 @@ func newServiceGroup() *serviceGroup {
 // get IAkskService instance
 func ApiKeyService() xapikey.IAkskService {
 	return getServiceGroup().apiKeyService
+}
+
+func XApiUserInfoService() xapikey.IXApiUserInfoService {
+	return getServiceGroup().userInfoService
 }

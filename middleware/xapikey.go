@@ -9,6 +9,7 @@ import (
 	"github.com/abmpio/irisx/controllerx"
 	"github.com/abmpio/xapikey"
 	"github.com/abmpio/xapikey/options"
+	"github.com/abmpio/xapikey/service"
 	"github.com/casdoor/casdoor-go-sdk/casdoorsdk"
 	"github.com/kataras/iris/v12"
 	"github.com/kataras/iris/v12/context"
@@ -105,6 +106,17 @@ func serveHTTP(ctx *context.Context) {
 		User: casdoorsdk.User{
 			Id: apiKey.CreatorId,
 		},
+	}
+	userInfoService := service.XApiUserInfoService()
+	if userInfoService != nil {
+		err = userInfoService.SetupUserInfo(ctx, claim)
+		if err != nil {
+			log.Logger.Warn(err.Error())
+			ctx.StopExecution()
+			ctx.StatusCode(iris.StatusUnauthorized)
+			ctx.WriteString(err.Error())
+			return
+		}
 	}
 	// set claims
 	ctx.Values().Set(controllerx.GetCasdoorMiddleware().Options.Jwt.ContextKey, claim)
