@@ -35,9 +35,15 @@ func newServiceGroup() *serviceGroup {
 	serviceFactory := &serviceGroup{
 		redisService: app.Context.GetInstance(new(redis.IRedisService)).(redis.IRedisService),
 
-		apiKeyService:   app.Context.GetInstance(new(xapikey.IAkskService)).(xapikey.IAkskService),
-		userInfoService: app.Context.GetInstance(new(xapikey.IXApiUserInfoService)).(xapikey.IXApiUserInfoService),
+		apiKeyService: app.Context.GetInstance(new(xapikey.IAkskService)).(xapikey.IAkskService),
 	}
+	instance := app.Context.GetInstance(new(xapikey.IXApiUserInfoService))
+	uService, ok := instance.(xapikey.IXApiUserInfoService)
+	if ok {
+		// 防止panic
+		serviceFactory.userInfoService = uService
+	}
+
 	return serviceFactory
 }
 
