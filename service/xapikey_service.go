@@ -61,7 +61,7 @@ func (s *apiKeyService) FindByAk(app string, accessKey string) (aksk *xapikey.Ak
 	return aksk, nil
 }
 
-func (s *apiKeyService) Create(item interface{}) (*xapikey.Aksk, error) {
+func (s *apiKeyService) Create(item interface{}, opts ...mongodbr.MongodbrInsertOneOption) (*xapikey.Aksk, error) {
 	aksk, ok := item.(*xapikey.Aksk)
 	if !ok {
 		return nil, fmt.Errorf("item必须是aksk对象")
@@ -83,14 +83,14 @@ func (s *apiKeyService) Create(item interface{}) (*xapikey.Aksk, error) {
 	}
 
 	aksk.BeforeCreate()
-	aksk, err = s.IEntityService.Create(aksk)
+	aksk, err = s.IEntityService.Create(aksk, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return aksk, nil
 }
 
-func (s *apiKeyService) UpdateFields(id primitive.ObjectID, update map[string]interface{}) error {
+func (s *apiKeyService) UpdateFields(id primitive.ObjectID, update map[string]interface{}, opts ...mongodbr.MongodbrFindOneAndUpdateOption) error {
 	item, err := s.FindById(id)
 	if err != nil {
 		return err
@@ -98,7 +98,7 @@ func (s *apiKeyService) UpdateFields(id primitive.ObjectID, update map[string]in
 	if item == nil {
 		return fmt.Errorf("无效的数据")
 	}
-	err = s.IEntityService.UpdateFields(id, update)
+	err = s.IEntityService.UpdateFields(id, update, opts...)
 	if err != nil {
 		return err
 	}
@@ -106,7 +106,7 @@ func (s *apiKeyService) UpdateFields(id primitive.ObjectID, update map[string]in
 	return nil
 }
 
-func (s *apiKeyService) Delete(id primitive.ObjectID) error {
+func (s *apiKeyService) Delete(id primitive.ObjectID, opts ...mongodbr.MongodbrDeleteOption) error {
 	item, err := s.FindById(id)
 	if err != nil {
 		return err
@@ -115,7 +115,7 @@ func (s *apiKeyService) Delete(id primitive.ObjectID) error {
 		return fmt.Errorf("无效的数据")
 	}
 
-	err = s.IEntityService.Delete(id)
+	err = s.IEntityService.Delete(id, opts...)
 	if err != nil {
 		return err
 	}

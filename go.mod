@@ -8,9 +8,9 @@ require (
 	github.com/abmpio/abmp v0.0.0-20240708094807-9bfd8036f0dc
 	github.com/abmpio/app v0.0.0-20250405145210-604e829a8eb0
 	github.com/abmpio/configurationx v0.0.0-20250405143614-7d0f8d4abd37
-	github.com/abmpio/entity v0.0.0-20250318095200-30d9f32e2c57
+	github.com/abmpio/entity v0.0.0-20250427130305-3bf2257720e1
 	github.com/abmpio/irisx/controllerx v0.0.0-20250316105715-b6ac18447d25
-	github.com/abmpio/mongodbr v0.0.0-20250316104744-4897aa7fc7aa
+	github.com/abmpio/mongodbr v0.0.0-20250427125854-f2a7066157bb
 	github.com/abmpio/redisx v0.0.0-20241020105559-2c351d4b0ebe
 	github.com/abmpio/webserver v0.0.0-20250316110049-64431bd94f5d
 	github.com/casdoor/casdoor-go-sdk v1.5.0
