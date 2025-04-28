@@ -26,7 +26,7 @@ require (
 	github.com/CloudyKit/jet/v6 v6.3.1 // indirect
 	github.com/Joker/jade v1.1.3 // indirect
 	github.com/Shopify/goreferrer v0.0.0-20240724165105-aceaa0259138 // indirect
-	github.com/abmpio/irisx/casdoor v0.0.0-20250428082317-a5ee8bb87e93 // indirect
+	github.com/abmpio/irisx/casdoor v0.0.0-20250428085120-323e0b574426 // indirect
 	github.com/abmpio/libx v0.0.0-20250416082327-43188dbe828e // indirect
 	github.com/andybalholm/brotli v1.1.1 // indirect
 	github.com/armon/go-metrics v0.4.1 // indirect

@@ -20,8 +20,8 @@ github.com/abmpio/configurationx v0.0.0-20250405143614-7d0f8d4abd37 h1:Y3j2vdQ3c
 github.com/abmpio/configurationx v0.0.0-20250405143614-7d0f8d4abd37/go.mod h1:FlAIvGgmFA4Y/tgOcvIAlD9oPTEzM10y8wufMo5pSyM=
 github.com/abmpio/entity v0.0.0-20250428062237-a50137882c61 h1:vZeJiKMDy7fGwk9+2ml+IO4bC5eGD0QgNq2yoCpqctE=
 github.com/abmpio/entity v0.0.0-20250428062237-a50137882c61/go.mod h1:GvqKwyXLZ3U/bsXbC44zVs0kb26Nz5bk+K8PT8SJ2BQ=
-github.com/abmpio/irisx/casdoor v0.0.0-20250428082317-a5ee8bb87e93 h1:6fDSHeLuijNzHWny4NEAMs3i7KXi2Y2DOmi1ORcI4GI=
-github.com/abmpio/irisx/casdoor v0.0.0-20250428082317-a5ee8bb87e93/go.mod h1:huJEJ1Uhpp6X/pGGcIs/M55f28KQpBEp42uEll1SiH8=
+github.com/abmpio/irisx/casdoor v0.0.0-20250428085120-323e0b574426 h1:oFPABEW4J7Wfwu5E8P+AJX+ICO8QZD36PSvkYhKQFB4=
+github.com/abmpio/irisx/casdoor v0.0.0-20250428085120-323e0b574426/go.mod h1:huJEJ1Uhpp6X/pGGcIs/M55f28KQpBEp42uEll1SiH8=
 github.com/abmpio/irisx/controllerx v0.0.0-20250428082317-a5ee8bb87e93 h1:EFLvzZSGgx/JJD6GjDwUw0NjD4azRPx6mkHT7uIweGU=
 github.com/abmpio/irisx/controllerx v0.0.0-20250428082317-a5ee8bb87e93/go.mod h1:9LJ0c8DLAj7VjHXN726c9kYuNe75jF0zgu19hcShUxM=
 github.com/abmpio/libx v0.0.0-20250416082327-43188dbe828e h1:49yVOyuovgxixJTXm9aJdcPv8zd4JKbQqc6i/OAf0r8=
