@@ -8,11 +8,11 @@ require (
 	github.com/abmpio/abmp v0.0.0-20240708094807-9bfd8036f0dc
 	github.com/abmpio/app v0.0.0-20250405145210-604e829a8eb0
 	github.com/abmpio/configurationx v0.0.0-20250405143614-7d0f8d4abd37
-	github.com/abmpio/entity v0.0.0-20250427130305-3bf2257720e1
-	github.com/abmpio/irisx/controllerx v0.0.0-20250316105715-b6ac18447d25
-	github.com/abmpio/mongodbr v0.0.0-20250427125854-f2a7066157bb
+	github.com/abmpio/entity v0.0.0-20250428062237-a50137882c61
+	github.com/abmpio/irisx/controllerx v0.0.0-20250428063732-aed88bda8f56
+	github.com/abmpio/mongodbr v0.0.0-20250428062021-e099217426ae
 	github.com/abmpio/redisx v0.0.0-20241020105559-2c351d4b0ebe
-	github.com/abmpio/webserver v0.0.0-20250316110049-64431bd94f5d
+	github.com/abmpio/webserver v0.0.0-20250413111631-2b22e4d40f14
 	github.com/casdoor/casdoor-go-sdk v1.5.0
 	github.com/go-viper/mapstructure/v2 v2.2.1
 	github.com/kataras/iris/v12 v12.2.11
@@ -26,8 +26,8 @@ require (
 	github.com/CloudyKit/jet/v6 v6.3.1 // indirect
 	github.com/Joker/jade v1.1.3 // indirect
 	github.com/Shopify/goreferrer v0.0.0-20240724165105-aceaa0259138 // indirect
-	github.com/abmpio/irisx/casdoor v0.0.0-20250316105715-b6ac18447d25 // indirect
-	github.com/abmpio/libx v0.0.0-20250122091832-703dd45ef186 // indirect
+	github.com/abmpio/irisx/casdoor v0.0.0-20250428063732-aed88bda8f56 // indirect
+	github.com/abmpio/libx v0.0.0-20250416082327-43188dbe828e // indirect
 	github.com/andybalholm/brotli v1.1.1 // indirect
 	github.com/armon/go-metrics v0.4.1 // indirect
 	github.com/aymerick/douceur v0.2.0 // indirect
@@ -38,17 +38,17 @@ require (
 	github.com/fatih/structs v1.1.0 // indirect
 	github.com/flosch/pongo2/v4 v4.0.2 // indirect
 	github.com/fsnotify/fsnotify v1.9.0 // indirect
-	github.com/gabriel-vasile/mimetype v1.4.8 // indirect
+	github.com/gabriel-vasile/mimetype v1.4.9 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
-	github.com/go-playground/validator/v10 v10.25.0 // indirect
+	github.com/go-playground/validator/v10 v10.26.0 // indirect
 	github.com/go-redis/redis/v8 v8.11.5 // indirect
 	github.com/golang-jwt/jwt/v4 v4.5.2 // indirect
 	github.com/golang/snappy v1.0.0 // indirect
 	github.com/gomarkdown/markdown v0.0.0-20250311123330-531bef5e742b // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/gorilla/css v1.0.1 // indirect
-	github.com/hashicorp/consul/api v1.31.2 // indirect
+	github.com/hashicorp/consul/api v1.32.0 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-hclog v1.6.3 // indirect
