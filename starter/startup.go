@@ -17,7 +17,9 @@ import (
 )
 
 func init() {
-	fmt.Println("plugins.xapikey.starter init")
+	if app.IsServerMode() {
+		fmt.Println("plugins.xapikey.starter init")
+	}
 
 	cli.ConfigureService(serviceConfigurator)
 }

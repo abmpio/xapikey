@@ -4,13 +4,13 @@ go 1.25.3
 
 require (
 	github.com/abmpio/abmp v0.0.0-20251111111606-7b64b09dbdc9
-	github.com/abmpio/app v0.0.0-20250405145210-604e829a8eb0
+	github.com/abmpio/app v0.0.0-20251117083545-747a0d94c71c
 	github.com/abmpio/configurationx v0.0.0-20250514030648-55ccd037d034
-	github.com/abmpio/entity v0.0.0-20251111101616-8070dbc3ebbe
+	github.com/abmpio/entity v0.0.0-20251117090522-8f6a8d8b8fab
 	github.com/abmpio/irisx/controllerx v0.0.0-20251111102606-d89b21eb0893
 	github.com/abmpio/mongodbr v0.0.0-20251111101002-feaf6969d42f
-	github.com/abmpio/redisx v0.0.0-20241020105559-2c351d4b0ebe
-	github.com/abmpio/webserver v0.0.0-20251111121755-0ddfa5edd718
+	github.com/abmpio/redisx v0.0.0-20250806035138-77576a7fd349
+	github.com/abmpio/webserver v0.0.0-20251117091044-4c5cfd5fc72e
 	github.com/casdoor/casdoor-go-sdk v1.31.0
 	github.com/go-viper/mapstructure/v2 v2.4.0
 	github.com/kataras/iris/v12 v12.2.11
